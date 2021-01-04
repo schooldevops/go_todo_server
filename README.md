@@ -62,3 +62,15 @@ aws ecr batch-delete-image \
 aws ecr delete-repository \
       --repository-name todoapp \
       --force      
+
+
+
+## GORM Install
+
+[https://gorm.io/](https://gorm.io/)
+
+```
+go get -u gorm.io/gorm
+go get -u gorm.io/driver/sqlite
+
+```

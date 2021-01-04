@@ -1,0 +1,28 @@
+### GET Todos
+GET http://localhost:9999/api/todos
+
+### GET Todos by ID
+GET http://localhost:9999/api/users/kido_test5
+
+### Create Users
+POST http://localhost:9999/api/users 
+Content-Type: application/json
+
+{
+    "id": "kido_test5",
+    "name": "BaeKido5",
+    "Birth": "770605"
+}
+
+### Update Users
+PUT http://localhost:9999/api/users 
+Content-Type: application/json
+
+{
+    "id": "kido_test5",
+    "name": "modified kido test5",
+    "Birth": "770101"
+}
+
+### Delete Todos
+DELETE http://localhost:9999/api/users/kido_test5

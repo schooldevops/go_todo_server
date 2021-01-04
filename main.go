@@ -21,6 +21,7 @@ func main() {
 	handlers = append(handlers, todoHandler()...)
 	handlers = append(handlers, todoAlarmHandler()...)
 	handlers = append(handlers, alarmTargetHandler()...)
+	handlers = append(handlers, userHandler()...)
 
 	sort.SliceStable(handlers, func(i, j int) bool {
 		return len(handlers[i].path) > len(handlers[j].path)

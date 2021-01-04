@@ -47,3 +47,28 @@ create table alarm_target (
 comment '알람대상정보';
 
 alter table alarm_target add constraint fk_with_alarm_target foreign key(todo_alarm_id) references todo_alarm(id) ON DELETE CASCADE;
+
+-- auto-generated definition
+create table users
+(
+    id         varchar(255) not null primary key comment 'ID',
+    name       varchar(255) null comment '이름',
+    birth      varchar(255) null comment '생일',
+    created_at datetime(6)  null comment '가입일'
+) comment '사용자';
+
+-- auto-generated definition
+create table user_details
+(
+    id          varchar(255) not null primary key comment 'ID',
+    avatar_img  varchar(255) null comment '아바타이미지',
+    nick        varchar(255) null comment '닉네임',
+    category    varchar(255) null comment '사용자구분',
+    joined_at   datetime(6)  null comment '가입일',
+    modified_at datetime(6)  null comment '수정일',
+    constraint FK_UserDetail_to_users foreign key (id) references users (id)
+) comment '사용자상세';
+
+
+
+

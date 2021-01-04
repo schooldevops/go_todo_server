@@ -1,0 +1,34 @@
+### GET Todos
+GET http://localhost:9999/api/todos/alarms
+
+### GET Todos by ID
+GET http://localhost:9999/api/todos/1/alarms/1
+
+### Create Todos
+POST http://localhost:9999/api/todos/1/alarms
+Content-Type: application/json
+
+{
+    "todo_id": 1,
+    "period_type": "HOURS",
+    "alarm_type": "PUSH",
+    "alarm_date": "2020-12-30",
+    "alarm_time": "10:00:00",
+    "active_yn": "Y"
+}
+
+### Update Todos
+PUT http://localhost:9999/api/todos/1/alarms
+Content-Type: application/json
+
+{
+    "id": 1,
+    "period_type": "HOURS",
+    "alarm_type": "PUSH",
+    "alarm_date": "2020-12-30",
+    "alarm_time": "10:00:00",
+    "active_yn": "N"
+}
+
+### Delete Todos
+DELETE http://localhost:9999/api/todos/1/alarms/1

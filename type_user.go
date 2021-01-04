@@ -1,6 +1,6 @@
 package main
 
-type user struct {
+type users struct {
 	ID        string `json:"id"`
 	Birth     string `json:"birth,omitempty"`
 	Name      string `json:"name"`
