@@ -1,15 +1,18 @@
-FROM golang:1.14-alpine
+FROM golang:1.14-alpine as builder
 
 WORKDIR /src/
+RUN apk --update add --no-cache ca-certificates openssl git tzdata && \
+update-ca-certificates
+
 COPY . .
 
-RUN apk update && \
-    apk add git && \
-    go get github.com/cespare/reflex && \
-    go get github.com/gorilla/mux && \
-    go get github.com/go-sql-driver/mysql && \
-    go build -o ./go_todo_server
+RUN go mod download
+RUN CGO_ENABLED=0 go build -o /bin/todo_server
 
-EXPOSE 9999
+FROM scratch
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+COPY --from=builder /bin/todo_server /bin/todo_server
+
+WORKDIR /bin/
 # CMD ["reflex", "-c" "reflex.conf"]
-CMD ./go_todo_server -p 9999
+ENTRYPOINT ["/bin/todo_server", "-p", "9999"]
