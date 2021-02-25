@@ -8,7 +8,8 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-var connectionString = "boarduser:boarduser123@tcp(127.0.0.1:3306)/simpleboard?charset=utf8&parseTime=True&loc=Local"
+// var connectionString = "boarduser:boarduser123@tcp(127.0.0.1:3306)/simpleboard?charset=utf8&parseTime=True&loc=Local"
+var connectionString = "boarduser:boarduser123@tcp(go-todo-kido-db.cawucurfyhe9.ap-northeast-2.rds.amazonaws.com:3306)/simpleboard?charset=utf8&parseTime=True&loc=Local"
 
 const maxOpenConn = 25
 const maxIdleConn = 25
